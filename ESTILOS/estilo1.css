@@ -19,7 +19,6 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-direction: column;
 }
 
 .header-left,
@@ -28,7 +27,6 @@ body {
   display: flex;
   align-items: center;
   gap: 15px; /* Espacio entre elementos */
-  flex-direction: column;
 }
 
 .logo {
@@ -1453,4 +1451,5 @@ body.light-theme .carousel-nav-btn {
         flex-direction: column; /* Apila los iframes sociales */
         align-items: center;
     }
+
 }
