@@ -1,0 +1,296 @@
+/* Estilos específicos para la página de detalle */
+        .product-detail-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 40px auto;
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .product-detail-image-gallery {
+            flex: 1 1 45%; /* Ocupa casi la mitad */
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .main-image-container {
+            width: 100%;
+            padding-top: 100%; /* Proporción 1:1 */
+            position: relative;
+            overflow: hidden; /* Oculta el exceso para el zoom */
+            border: 1px solid #007bff;
+            border-radius: 8px;
+            cursor: zoom-in;
+        }
+
+        .main-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Ajusta la imagen sin cortarla */
+            background-color: #333;
+            transition: transform 0.1s ease-out; /* Transición suave para el zoom */
+            transform-origin: 0% 0%; /* Punto de origen para el zoom */
+        }
+        .main-image.zoomed {
+            transform: scale(2.5); /* Zoom más grande */
+        }
+        .thumbnail-gallery {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .thumbnail {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            background-color: #333;
+            border: 1px solid #555;
+            border-radius: 5px;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.2s, border-color 0.2s;
+        }
+        .thumbnail.active, .thumbnail:hover {
+            opacity: 1;
+            border-color: #007bff;
+        }
+
+        .product-detail-info {
+            flex: 1 1 50%; /* Ocupa la otra mitad */
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            color: #e0e0e0;
+        }
+
+        .product-detail-info h1 {
+            color: #007bff;
+            font-size: 2.2em;
+            margin-bottom: 10px;
+        }
+        .product-detail-info .category-text {
+            font-size: 0.9em;
+            color: #aaa;
+            margin-bottom: 15px;
+        }
+        .product-detail-info .price {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #28a745; /* Verde para el precio */
+            margin-bottom: 20px;
+        }
+        .product-detail-info .stock-status {
+            font-size: 1.1em;
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .quantity-control label {
+            font-size: 1.1em;
+        }
+        .quantity-control button {
+            background-color: #333;
+            border: 1px solid #555;
+            color: white;
+            width: 30px;
+            height: 30px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .quantity-control input[type="number"] {
+            width: 60px;
+            padding: 5px;
+            background-color: #333;
+            color: white;
+            border: 1px solid #555;
+            border-radius: 5px;
+            text-align: center;
+            -moz-appearance: textfield; /* Para ocultar flechas en Firefox */
+        }
+        .quantity-control input::-webkit-outer-spin-button,
+        .quantity-control input::-webkit-inner-spin-button {
+            -webkit-appearance: none; /* Para ocultar flechas en Chrome/Safari */
+            margin: 0;
+        }
+
+        .add-to-cart-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            margin-top: 10px;
+        }
+        .add-to-cart-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .product-description, .product-specs-list {
+            margin-top: 30px;
+            border-top: 1px solid #333;
+            padding-top: 20px;
+        }
+        .product-description h2, .product-specs-list h2 {
+            color: #007bff;
+            margin-bottom: 15px;
+        }
+        .product-specs-list ul {
+            list-style: none;
+            padding: 0;
+        }
+        .product-specs-list li {
+            background-color: #2a2a2a;
+            padding: 10px 15px;
+            margin-bottom: 8px;
+            border-left: 3px solid #007bff;
+            border-radius: 4px;
+        }
+        
+        /* --- ESTILOS DE CALIFICACIÓN --- */
+        .rating-section {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .stars-container {
+            display: flex;
+            color: orange; /* Color de las estrellas */
+            font-size: 1.5em;
+        }
+        .star {
+            width: 1em; /* Ancho igual al alto para la estrella */
+            height: 1em;
+            display: inline-block;
+            overflow: hidden;
+            position: relative;
+        }
+        .star::before {
+            content: '★'; /* Estrella sólida */
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            text-align: center;
+        }
+        .star.half::before {
+            content: '★'; /* Estrella sólida base */
+            color: #555; /* Color para la parte vacía */
+        }
+        .star.half::after {
+            content: '★'; /* Estrella sólida superpuesta */
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: var(--half-star-width, 50%); /* Ancho variable para media estrella */
+            overflow: hidden;
+            color: orange; /* Color para la parte llena */
+        }
+        .rating-value {
+            font-weight: bold;
+            color: white;
+            font-size: 1.2em;
+        }
+        .reviews-count {
+            color: #aaa;
+            font-size: 0.9em;
+        }
+
+        .customer-reviews-section {
+            margin-top: 40px;
+            border-top: 1px solid #333;
+            padding-top: 20px;
+        }
+        .customer-reviews-section h2 {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+        .review-bar-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        .star-label {
+            width: 60px;
+            text-align: right;
+            padding-right: 10px;
+            color: #ccc;
+        }
+        .progress-bar-bg {
+            flex-grow: 1;
+            height: 12px;
+            background-color: #333;
+            border-radius: 6px;
+            overflow: hidden;
+            margin-right: 10px;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            background-color: orange;
+            width: 0%; /* Se llenará con JS */
+            border-radius: 6px;
+            transition: width 0.5s ease-out;
+        }
+        .percentage-label {
+            width: 40px;
+            text-align: left;
+            color: #ccc;
+        }
+        .review-example {
+            background-color: #2a2a2a;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            color: #ccc;
+        }
+        .review-example h4 {
+            color: #007bff;
+            margin-bottom: 5px;
+        }
+        .review-example .review-stars {
+            color: orange;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+        .review-example p {
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+
+        /* Media queries para responsividad */
+        @media (max-width: 768px) {
+            .product-detail-container {
+                flex-direction: column;
+                margin: 20px;
+                padding: 20px;
+            }
+            .product-detail-image-gallery, .product-detail-info {
+                min-width: unset;
+                flex-basis: auto;
+            }
+            .main-image-container {
+                padding-top: 75%; /* Ajusta para pantallas más pequeñas */
+            }
+        }
